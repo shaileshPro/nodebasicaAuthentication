@@ -6,14 +6,19 @@
 		<title>Nodetask</title>
 	</head>
 	<body>
-		<h1>Login</h1>
+		<h1 >Login</h1>
 		<form id="login">
 			<input type="text" autocomplete="off" id="username" placeholder="Username" />
 			<input type="password" autocomplete="off" id="password" placeholder="Password" />
 			<input type="submit" value="Submit Form" />
 		</form>
-
+		<div class="circl" id="circl" >
+			<button style="display:none" id="updatePassword" class="float-left submit-button" >Update user</button>	
+		</div>
 		<script>
+
+	
+			
 			const form = document.getElementById('login')
 			form.addEventListener('submit', login)
 
@@ -38,10 +43,17 @@
 					console.log('Got the token: ', result.data)
 					localStorage.setItem('token', result.data)
 					alert('Success')
+  
+                    document.getElementById("updatePassword").style.display = "block";
+
 				} else {
 					alert(result.error)
 				}
 			}
+
+			document.getElementById("updatePassword").onclick = function () {
+				location.href = "change-password.html";
+			};
 		</script>
 	</body>
 </html>

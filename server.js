@@ -7,9 +7,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const config = require('./config.json')
 
-//const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
-
-mongoose.connect('mongodb://localhost:27017/login-app-db', {
+mongoose.connect('mongodb://localhost:27017/user-Auth', {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 	//useCreateIndex: true
@@ -130,9 +128,9 @@ app.get('/api/listUser', async (req, res) => {
 
 	try {
 		 user = await User.find({}, {_id:0, username : 1})
-		 console.log(user)
 		if(user.length==0)
-              throw error;
+			  throw error;
+			  
 	} catch (error) {
 		return res.json({
 			status: 'error',
@@ -144,6 +142,6 @@ app.get('/api/listUser', async (req, res) => {
 	res.json({ status: 'ok' ,User:user})
 })
 
-app.listen(9999, () => {
-	console.log('Server up at 9999')
+app.listen(7800, () => {
+	console.log('Server up at 7800')
 })
