@@ -74,7 +74,7 @@ app.post('/api/login', async (req, res) => {
 			},
 			secret,
 			{
-				expiresIn: "60s",
+				expiresIn: "90s",
 			  }
 		)
 
